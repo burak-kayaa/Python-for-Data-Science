@@ -14,10 +14,3 @@ print(ft_list)
 print(ft_tuple)
 print(ft_set)
 print(ft_dict)
-
-
-#$>python Hello.py | cat -e
-#['Hello', 'World!']$
-#('Hello', 'Turkey!')$
-#{'Hello', 'Istanbul!'}$
-#{'Hello': '42Istanbul!'}$
