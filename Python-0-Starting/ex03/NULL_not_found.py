@@ -1,15 +1,6 @@
-# def NULL_not_found(object: any) -> int:
-#     typ = type(object)
-#     name = typ.__name__
-#     title = name.title()
-#     # print(f"{object} : {title}")
-#     print(f"{object} : {object.__class__}")
-
-
 def NULL_not_found(object: any) -> int:
     typ = type(object)
     name = typ.__name__
-    # print(f"name: {name}")
     if (name == "NoneType" and object == None):
         title = "Nothing:"
     elif (name == "float" and object != object):

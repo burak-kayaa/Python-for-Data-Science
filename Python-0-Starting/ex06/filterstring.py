@@ -1,9 +1,13 @@
 import sys
+from ft_filter import ft_filter
 
 
 def arg_checker(args):
+    """
+    Check if the arguments are valid
+    """
     puncs = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
-    not_printables = lambda s: [c for c in s if not c.isprintable()]
+    not_printables = ft_filter(lambda x: not x.isprintable(), args[1])
     try:
         assert len(args) == 3
         assert args[2].isnumeric()
@@ -15,17 +19,18 @@ def arg_checker(args):
         return 1
     return 0
 
+
 def main():
+    """
+    Main function
+    """
     if arg_checker(sys.argv):
         return 1
     string = sys.argv[1]
-    strings = split(string)
-    mains = []
-    for i in strings:
-        if len(i) > int(sys.argv[2]):
-            mains.append(i)
-    print(" ".join(mains))
-
+    strings = string.split()
+    number = int(sys.argv[2])
+    filtered = ft_filter(lambda x: len(x) > number, strings)
+    print(filtered)
 
 
 if __name__ == '__main__':
