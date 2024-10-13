@@ -1,6 +1,7 @@
 from load_image import ft_load
 import numpy as np
 from PIL import Image
+from matplotlib import pyplot as plt
 
 
 def main():
@@ -17,7 +18,11 @@ def main():
     gray_array_reshaped = gray_array[:, :, np.newaxis]
     print(f"New shape after slicing: {gray_array_reshaped.shape}")
     print(gray_array_reshaped)
-    gray_image.show()
+    try:
+        plt.imshow(gray_array_reshaped, cmap="gray")
+        plt.show()
+    except KeyboardInterrupt:
+        print("\n[INFO] - KeyboardInterrupt")
 
 
 if __name__ == '__main__':

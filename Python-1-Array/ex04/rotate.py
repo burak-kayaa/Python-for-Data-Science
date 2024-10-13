@@ -1,6 +1,7 @@
 from load_image import ft_load
 import numpy as np
 from PIL import Image
+from matplotlib import pyplot as plt
 
 
 def transpoze_array(array: np.ndarray) -> np.ndarray:
@@ -38,8 +39,11 @@ def main():
     print(gray_array)
     transpozed_array = transpoze_array(gray_array)
     transpozed_image = Image.fromarray(transpozed_array)
-    transpozed_image.show()
-
+    try:
+        plt.imshow(transpozed_image, cmap="gray")
+        plt.show()
+    except KeyboardInterrupt:
+        print("\n[INFO] - KeyboardInterrupt")
 
 if __name__ == '__main__':
     main()
