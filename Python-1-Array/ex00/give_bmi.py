@@ -36,11 +36,11 @@ def give_bmi(height: list[int | float], weight: list[int | float]) \
         raise ValueError("The length of height and weight list must be equal.")
     bmis = []
     for h, w in zip(height, weight):
-        if h <= 30:
+        if h <= 1:
             raise ValueError("Height value must be greater than 30.")
         if w <= 30:
             raise ValueError("Weight value must be greater than 30.")
-        bmis.append(w[1] / h[0] ** 2)
+        bmis.append(w / h ** 2)
     return bmis
 
 
