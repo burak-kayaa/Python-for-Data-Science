@@ -28,8 +28,8 @@ def string_to_int(value: str) -> int:
 
 def main():
     """
-    Load the life expectancy dataset
-    and plot life expectancy for Turkey and France.
+    Load the population_total dataset
+    and plot total population for Turkey and France.
     """
     df = load("population_total.csv")
     if df is None:
