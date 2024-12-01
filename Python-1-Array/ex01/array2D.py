@@ -15,9 +15,15 @@ def check_lists(lists: list) -> int:
     """
     if lists is None:
         return 1
+    for elem in lists:
+        if elem is None:
+            return 1
+    for elem in lists:
+        if not isinstance(elem, list):
+            return 1
     first_len = len(lists[0])
-    for list in lists:
-        if len(list) != first_len:
+    for elem in lists:
+        if len(elem) != first_len:
             return 1
     return 0
 

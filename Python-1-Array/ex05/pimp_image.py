@@ -82,7 +82,6 @@ def main():
     Load an image, slice it, convert it to grayscale, and display it.
     """
     path = "./landscape.jpeg"
-    image = Image.open(path)
     array = ft_load(path)
     print(array)
     invert = ft_invert(array)
