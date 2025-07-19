@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 
 class Character(ABC):
     """
-    Character class
+Helper class that provides a standard way to create an ABC    Character class
 
     Attributes:
         first_name: a string representing the first name of the character
@@ -13,8 +13,11 @@ class Character(ABC):
     Methods:
         is_alive: a method that sets the is_alive attribute to False
     """
-    @abstractmethod
-    def __init__(self, first_name, is_alive=True):
+    def __init__(
+            self,
+            first_name: str,
+            is_alive: bool = True
+        ):
         """
         Character class constructor
 
@@ -30,14 +33,16 @@ class Character(ABC):
         """
         Character class die method
         """
-        self.is_alive = False
-
 
 class Stark(Character):
     """
     Stark character class
     """
-    def __init__(self, first_name, is_alive=True):
+    def __init__(
+            self,
+            first_name: str,
+            is_alive: bool = True
+        ):
         """
         Stark class constructor
 
@@ -46,7 +51,7 @@ class Stark(Character):
             is_alive: a boolean representing if the character is alive or not
         """
         super().__init__(first_name, is_alive)
-
+        
     def die(self):
         """
         Stark class die method

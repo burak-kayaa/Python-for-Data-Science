@@ -20,6 +20,18 @@ class Baratheon(Character):
         self.eyes = "brown"
         self.hairs = "dark"
 
+    def __str__(self):
+        """
+        String representation of the Baratheon character
+        """
+        return f"Vector ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
+
+    def __repr__(self):
+        """
+        Representation of the Baratheon character
+        """
+        return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
+
     def die(self):
         """
         Baratheon class die method
@@ -49,6 +61,18 @@ class Lannister(Character):
         Lannister class die method
         """
         self.is_alive = False
+
+    def __str__(self):
+        """
+        String representation of the Lannister character
+        """
+        return f"Vector ('{self.family_name}', '{self.eyes}', '{self.hairs}')"    
+
+    def __repr__(self):
+        """
+        Representation of the Lannister character
+        """
+        return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 
     @classmethod
     def create_lannister(cls, first_name, is_alive):

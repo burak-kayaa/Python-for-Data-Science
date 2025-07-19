@@ -23,36 +23,27 @@ class calculator():
         """
         Dot product of two vectors
         """
-        if len(V1) == len(V2):
-            dot_product = 0
-            for i in range(len(V1)):
-                dot_product += V1[i] * V2[i]
-            print("Dot product is: " + str(dot_product))
-        else:
-            raise ValueError("Vectors must be of the same length")
+        dot_product = 0
+        for i in range(len(V1)):
+            dot_product += V1[i] * V2[i]
+        print("Dot product is: " + str(dot_product))
 
     @staticmethod
     def add_vec(V1: list[float], V2: list[float]) -> None:
         """
         Adding two vectors
         """
-        if len(V1) == len(V2):
-            add = []
-            for i in range(len(V1)):
-                add.append(V1[i] + V2[i])
-            print("Add Vector is : " + str([f"{num:.1f}" for num in add]))
-        else:
-            raise ValueError("Vectors must be of the same length")
+        add = []
+        for i in range(len(V1)):
+            add.append(V1[i] + V2[i])
+        print("Add Vector is : " + str([f"{num:.1f}" for num in add]))
 
     @staticmethod
     def sous_vec(V1: list[float], V2: list[float]) -> None:
         """
         Subtracting two vectors
         """
-        if len(V1) == len(V2):
-            sub = []
-            for i in range(len(V1)):
-                sub.append(V1[i] - V2[i])
-            print("Sous Vector is: " + str([f"{num:.1f}" for num in sub]))
-        else:
-            raise ValueError("Vectors must be of the same length")
+        sub = []
+        for i in range(len(V1)):
+            sub.append(V1[i] - V2[i])
+        print("Sous Vector is: " + str([f"{num:.1f}" for num in sub]))
