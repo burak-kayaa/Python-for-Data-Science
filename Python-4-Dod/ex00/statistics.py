@@ -36,29 +36,37 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
         *args: A list of numbers
         **kwargs: A dictionary with the statistics to calculate
     """
-    numbers = list(args)
-    mean = sum(numbers) / len(numbers) if numbers else 0
 
-    for key, value in kwargs.items():
-        if not args:
+    if not args:
+        for key in kwargs:
             print("ERROR")
-            continue
-        if value == "median":
+        return
+    for arg in args:
+        if not isinstance(arg, (int, float)):
+            raise TypeError("All arguments must be numbers")
+    if not kwargs:
+        print("No statistics requested. Please specify at least one statistic to calculate.")
+    numbers = sorted(args)
+    
+    for key, value in kwargs.items():
+        if value == "mean":
+            mean = sum(numbers) / len(numbers)
+            print(f"Mean: {mean:.1f}")
+        elif value == "median":
             median = ft_median(numbers)
             print(f"Median: {median}")
-        elif value == "mean":
-            print(f"Mean: {mean}")
         elif value == "quartile":
-            quartile_25 = calculate_quartile(numbers, 0.25)
-            quartile_75 = calculate_quartile(numbers, 0.75)
-            quartiles = [quartile_25, quartile_75]
-            print(quartiles)
+            q25 = calculate_quartile(numbers, 0.25)
+            q75 = calculate_quartile(numbers, 0.75)
+            print(f"quartile : [{q25:.1f}, {q75:.1f}]")
         elif value == "std":
-            std = (sum([(x - mean) ** 2 for x in numbers])
-                   / len(numbers)) ** 0.5
-            print(f"std : {std}")
+            mean = sum(numbers) / len(numbers)
+            variance = sum((x - mean) ** 2 for x in numbers) / len(numbers)
+            std_dev = variance ** 0.5
+            print(f"std: {std_dev:f}")
         elif value == "var":
-            var = sum([(x - mean) ** 2 for x in numbers]) / len(numbers)
-            print(f"var : {var}")
+            mean = sum(numbers) / len(numbers)
+            variance = sum((x - mean) ** 2 for x in numbers) / len(numbers)
+            print(f"var: {variance:f}")
         else:
-            pass
+            continue

@@ -28,7 +28,6 @@ def outer(x: int | float, function) -> object:
             The result of the function
         """
         nonlocal x
-        val = function(x)
-        x = val
-        return val
+        x = function(x)
+        return x
     return inner
